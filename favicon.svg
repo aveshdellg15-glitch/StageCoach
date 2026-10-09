@@ -1,0 +1,6 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 246 246"><ns0:rect width="246" height="246" rx="40" fill="#111211" /><ns0:g transform="translate(0 33)"><ns0:g fill="#d2ff5a" id="g10">
+    <ns0:path d="M 32,142 75,38 h 25 l 43,104 h -28 l -9,-24 H 67 l -9,24 z M 76,95 H 97 L 86,67 Z" fill-rule="evenodd" id="path6" />
+    <ns0:path d="m 106,38 h 29 l 25,67 25,-67 h 29 l -42,104 h -25 z" id="path8" />
+  </ns0:g>
+  <ns0:path d="m82 89 0 13 12-6.5Z" fill="#f7f8f2" id="path12" />
+  </ns0:g></ns0:svg>
