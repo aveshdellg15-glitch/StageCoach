@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">A rehearsal stage seen through a cinematic spotlight</title>
+  <desc id="desc">Two actors rehearse with scripts under lime and ivory stage lights, framed by dark theatre curtains.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#252920"/>
+      <stop offset=".5" stop-color="#161815"/>
+      <stop offset="1" stop-color="#0c0d0c"/>
+    </linearGradient>
+    <radialGradient id="hazeLime" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#d2ff5a" stop-opacity=".25"/>
+      <stop offset=".55" stop-color="#d2ff5a" stop-opacity=".07"/>
+      <stop offset="1" stop-color="#d2ff5a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hazeIvory" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f7f8f2" stop-opacity=".17"/>
+      <stop offset="1" stop-color="#f7f8f2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beamLime" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#d2ff5a" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#d2ff5a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beamIvory" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#f7f8f2" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#f7f8f2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="curtain" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#080908"/>
+      <stop offset=".24" stop-color="#30352a"/>
+      <stop offset=".48" stop-color="#111310"/>
+      <stop offset=".72" stop-color="#292d24"/>
+      <stop offset="1" stop-color="#090a09"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#171a15"/>
+      <stop offset="1" stop-color="#090a09"/>
+    </linearGradient>
+    <linearGradient id="script" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f7f8f2"/>
+      <stop offset="1" stop-color="#aeb4a3"/>
+    </linearGradient>
+    <filter id="blur40"><feGaussianBlur stdDeviation="40"/></filter>
+    <filter id="blur12"><feGaussianBlur stdDeviation="12"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".78" numOctaves="3" seed="19" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .12"/></feComponentTransfer>
+    </filter>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16" result="blur"/>
+      <feOffset dy="12"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".5"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="315" cy="330" rx="490" ry="460" fill="url(#hazeLime)" filter="url(#blur40)"/>
+  <ellipse cx="1260" cy="355" rx="430" ry="400" fill="url(#hazeIvory)" filter="url(#blur40)"/>
+  <ellipse cx="800" cy="250" rx="580" ry="330" fill="url(#hazeIvory)" opacity=".42"/>
+
+  <!-- Overhead bars and practical lamps. -->
+  <path d="M150 72H1450M230 104H1370" stroke="#45493e" stroke-width="5" opacity=".7"/>
+  <g fill="#0b0c0b" stroke="#59604d" stroke-width="3">
+    <path d="M260 70h92l-12 74h-68z"/><path d="M705 70h92l-12 74h-68z"/>
+    <path d="M1110 70h92l-12 74h-68z"/><path d="M1340 70h72l-10 62h-54z"/>
+  </g>
+  <g fill="#d2ff5a">
+    <ellipse cx="306" cy="145" rx="34" ry="9" opacity=".85"/>
+    <ellipse cx="751" cy="145" rx="34" ry="9" opacity=".36"/>
+  </g>
+  <g fill="#f7f8f2"><ellipse cx="1156" cy="145" rx="34" ry="9" opacity=".68"/><ellipse cx="1376" cy="133" rx="27" ry="7" opacity=".35"/></g>
+  <path d="M276 146 54 780h570L336 146Z" fill="url(#beamLime)"/>
+  <path d="M1124 146 890 790h540l-244-644Z" fill="url(#beamIvory)"/>
+  <path d="M722 146 565 690h370L781 146Z" fill="url(#beamIvory)" opacity=".38"/>
+
+  <!-- Theatre curtains create depth at the edges of the organic mask. -->
+  <path d="M0 0h235c-24 170-10 313 2 454 14 167-24 339-9 546H0Z" fill="url(#curtain)"/>
+  <path d="M1600 0h-220c22 177 3 318 12 474 10 181-23 340-4 526h212Z" fill="url(#curtain)"/>
+  <path d="M0 0h1600v42c-244 58-481 21-799 26C507 74 258 99 0 42Z" fill="#0b0c0b" opacity=".82"/>
+  <path d="M44 0c18 277-9 668 8 1000M118 0c31 278-15 672 4 1000M1500 0c-24 302 9 681-4 1000M1562 0c-16 298 6 672-4 1000" stroke="#45493e" stroke-width="3" opacity=".24"/>
+
+  <!-- Stage and perspective floor. -->
+  <path d="M0 706Q800 640 1600 706V1000H0Z" fill="url(#floor)"/>
+  <path d="M0 706Q800 640 1600 706" fill="none" stroke="#7c8669" stroke-width="3" opacity=".28"/>
+  <g stroke="#45493e" stroke-width="2" opacity=".35">
+    <path d="M800 680 72 1000M800 680 362 1000M800 680 604 1000M800 680 996 1000M800 680 1238 1000M800 680 1528 1000"/>
+    <path d="M115 805Q800 748 1485 805M42 902Q800 830 1558 902"/>
+  </g>
+  <ellipse cx="390" cy="850" rx="210" ry="45" fill="#d2ff5a" opacity=".08" filter="url(#blur12)"/>
+  <ellipse cx="1200" cy="850" rx="220" ry="45" fill="#f7f8f2" opacity=".06" filter="url(#blur12)"/>
+
+  <!-- Left actor, holding an open script. -->
+  <g filter="url(#softShadow)">
+    <ellipse cx="380" cy="355" rx="48" ry="57" fill="#111211"/>
+    <path d="M339 337c7-66 90-76 101-8-26-15-63-19-101 8Z" fill="#090a09"/>
+    <path d="M348 403c38-20 78-11 98 24l43 176-54 154H272l41-184 14-128c3-20 8-33 21-42Z" fill="#10120f"/>
+    <path d="m333 446-86 112 34 25 92-89M434 451l94 91-25 35-101-77" fill="none" stroke="#111211" stroke-width="38" stroke-linecap="round"/>
+    <path d="m269 538 118-33 101 57-120 48Z" fill="url(#script)"/>
+    <path d="m387 505-19 105M292 551l69-20M286 567l70-20M404 537l50 26M399 553l43 23" stroke="#555b4d" stroke-width="4" opacity=".7"/>
+    <path d="M295 735 273 917h67l48-154 24 154h67l-35-190Z" fill="#0b0c0b"/>
+    <path d="M267 917h82l-3 24h-105c0-13 10-21 26-24ZM408 917h82l23 24h-108Z" fill="#080908"/>
+    <path d="M331 411c12 19 58 24 82 2" fill="none" stroke="#d2ff5a" stroke-width="3" opacity=".48"/>
+  </g>
+
+  <!-- Right scene partner, a quieter silhouette. -->
+  <g opacity=".8" filter="url(#softShadow)">
+    <ellipse cx="1198" cy="382" rx="45" ry="54" fill="#171916"/>
+    <path d="M1154 372c0-66 82-76 93-12-27-19-58-17-93 12Z" fill="#0b0c0b"/>
+    <path d="M1150 433c33-22 80-16 101 17l38 170-27 132h-171l31-175 7-108c2-16 9-28 21-36Z" fill="#171916"/>
+    <path d="m1140 472-69 116M1240 473l70 105" stroke="#171916" stroke-width="35" stroke-linecap="round"/>
+    <path d="m1101 564 94-26 87 53-103 42Z" fill="url(#script)" opacity=".85"/>
+    <path d="m1195 538-16 95M1124 574l52-17M1210 566l43 21" stroke="#555b4d" stroke-width="4" opacity=".65"/>
+    <path d="m1110 728-22 190h62l48-151 23 151h64l-32-195Z" fill="#0d0e0d"/>
+    <path d="M1082 917h77l-4 24h-99c0-13 9-21 26-24ZM1217 917h76l21 24h-101Z" fill="#090a09"/>
+  </g>
+
+  <!-- A microphone and scattered rehearsal pages. -->
+  <g opacity=".52">
+    <path d="M1012 493v383M952 892h120M1012 876l-63 49M1012 876l63 49" stroke="#727a65" stroke-width="5"/>
+    <path d="m1009 508 55-70" stroke="#727a65" stroke-width="6"/>
+    <rect x="1051" y="413" width="23" height="58" rx="11" fill="#0b0c0b" stroke="#727a65" stroke-width="3" transform="rotate(36 1062 442)"/>
+  </g>
+  <g fill="#f7f8f2" opacity=".12">
+    <path d="m572 858 105-15 18 67-107 13Z"/><path d="m884 874 104 9-6 66-106-9Z"/>
+  </g>
+  <g fill="#d2ff5a">
+    <circle cx="262" cy="272" r="4" opacity=".55"/><circle cx="490" cy="199" r="3" opacity=".38"/>
+    <circle cx="1304" cy="284" r="4" opacity=".35"/><circle cx="1030" cy="232" r="3" opacity=".4"/>
+  </g>
+  <rect width="1600" height="1000" filter="url(#grain)" opacity=".32" style="mix-blend-mode:soft-light"/>
+</svg>
