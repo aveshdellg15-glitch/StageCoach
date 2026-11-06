@@ -1,0 +1,101 @@
+/* Motion refinement: Lenis + GSAP SplitText with React Bits-inspired interactions.
+   All effects use the existing charcoal, ivory and lime design tokens. */
+
+/* Lenis recommended root behaviour. Native scrolling remains the no-JS fallback. */
+html.lenis,
+html.lenis body { height: auto; }
+html.lenis { scroll-behavior: auto !important; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
+}
+
+/* Masked SplitText words reveal without changing the accessible headline. */
+.split-word {
+  position: relative;
+  will-change: transform;
+}
+
+/* A quiet aurora treatment adds depth behind the title, not visual noise. */
+.aurora-field {
+  position: absolute;
+  z-index: 1;
+  inset: -24%;
+  pointer-events: none;
+  opacity: .32;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse at 24% 42%,rgba(210,255,90,.22),transparent 30%),
+    radial-gradient(ellipse at 74% 36%,rgba(247,248,242,.15),transparent 28%),
+    radial-gradient(ellipse at 58% 80%,rgba(210,255,90,.1),transparent 30%);
+  transform: rotate(-4deg) scale(1.02);
+  transform-origin: 50% 50%;
+}
+
+/* StarBorder-style travelling highlight on the main film-cue button. */
+@property --cue-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.landing-hero .btn.primary::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(from var(--cue-angle),transparent 0 68%,rgba(255,255,255,.95) 80%,rgba(21,23,14,.25) 87%,transparent 96%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: cue-border-turn 4.5s linear infinite;
+}
+@keyframes cue-border-turn { to { --cue-angle: 360deg; } }
+
+/* SpotlightCard-style light follows accurate pointers across each benefit. */
+.benefit-card {
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+  position: relative;
+  isolation: isolate;
+}
+.benefit-card::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(280px circle at var(--spotlight-x) var(--spotlight-y),rgba(210,255,90,.13),rgba(210,255,90,.035) 42%,transparent 72%);
+  transition: opacity .4s ease;
+}
+.benefit-card::after { z-index: 0; pointer-events: none; }
+.benefit-card > * { position: relative; z-index: 1; }
+.benefit-card:hover::before,
+.benefit-card:focus-within::before { opacity: 1; }
+
+@media (pointer: fine) {
+  .landing-hero .btn,
+  .closing .btn { will-change: transform; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .split-word { will-change: auto; }
+  .aurora-field { transform: none; opacity: .2; }
+  .landing-hero .btn.primary::before { animation: none; }
+  .benefit-card::before { display: none; }
+  .landing-hero .btn,
+  .closing .btn { will-change: auto; }
+}
